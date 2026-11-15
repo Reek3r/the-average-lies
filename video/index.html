@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Average Lies · launch film (preview)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,0..100,0..1&family=DM+Mono:wght@400;500&display=swap" />
+<script src="./gsap.min.js"></script>
+<style>
+  :root { --paper: #efe7d6; --ink: #1b1a17; --pink: #ff48b0; --blue: #0078bf; --yellow: #ffe800; --sun: #ffb511; --green: #00a95c; --violet: #765ba7; --orange: #ff6c2f; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: #111; overflow: hidden; }
+  body { display: grid; place-items: center; font-family: 'Fraunces', Georgia, serif; }
+  #wrap { position: relative; }
+  #stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; overflow: hidden; background: var(--paper); color: var(--ink); }
+  #stage::after { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 50; opacity: 0.28; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .scene { position: absolute; inset: 0; visibility: hidden; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.1em; }
+  .disp { font-weight: 800; font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144; letter-spacing: -0.035em; line-height: 0.92; }
+  .center { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; }
+  .word { display: inline-block; }
+  .stamp { display: inline-block; padding: 18px 34px; font-family: 'DM Mono', monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; box-shadow: inset 0 0 0 6px var(--ink); }
+  .card { position: absolute; background: #fbf6ea; box-shadow: inset 0 0 0 3px var(--ink), 14px 14px 0 var(--pink); padding: 36px 44px; }
+  .chip { display: inline-block; padding: 8px 16px; font: 500 24px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: 0.06em; }
+  .ink-bg { background: var(--ink); color: var(--paper); }
+  .node { position: absolute; background: #fbf6ea; box-shadow: inset 0 0 0 3px var(--ink); padding: 22px 26px; font-size: 34px; line-height: 1.2; }
+  .node small { display: block; font: 500 18px 'DM Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; color: #7a7262; margin-bottom: 8px; }
+  svg { position: absolute; left: 0; top: 0; overflow: visible; }
+  .cap { position: absolute; left: 90px; bottom: 70px; font: 500 26px 'DM Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; }
+  .cap b { background: var(--yellow); padding: 4px 10px; font-weight: 500; }
+  .plate { position: absolute; left: 90px; top: 70px; font: 500 24px 'DM Mono', monospace; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pink); }
+  #ui { position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%); display: flex; gap: 10px; align-items: center; z-index: 99; font: 500 13px 'DM Mono', monospace; color: #eee; background: rgba(0,0,0,0.7); padding: 8px 12px; }
+  #ui button { font: inherit; background: #ffe800; border: 0; padding: 6px 12px; cursor: pointer; }
+  #ui input { width: 360px; }
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage">
+
+  <!-- 1 · HOOK -->
+  <section class="scene" id="s1">
+    <div class="center"><div>
+      <p class="mono" style="font-size:30px;color:#7a7262" id="s1k">Every week</p>
+      <h1 class="disp" style="font-size:150px;margin-top:20px" id="s1h"><span class="word">A</span> <span class="word">climate</span> <span class="word">claim</span><br><span class="word">makes</span> <span class="word">the</span> <span class="word" style="background:var(--yellow);padding:0 18px">news.</span></h1>
+    </div></div>
+    <div class="card s1c" style="left:120px;top:150px;width:520px;font-size:34px;transform:rotate(-6deg)">“Droughts in Somalia are getting worse.”</div>
+    <div class="card s1c" style="right:110px;top:190px;width:560px;font-size:34px;transform:rotate(5deg);box-shadow:inset 0 0 0 3px var(--ink),14px 14px 0 var(--blue)">“Zambia is drying out.”</div>
+    <div class="card s1c" style="left:300px;bottom:110px;width:600px;font-size:34px;transform:rotate(3deg);box-shadow:inset 0 0 0 3px var(--ink),14px 14px 0 var(--sun)">“Northern Australia is getting wetter.”</div>
+    <div class="card s1c" style="right:250px;bottom:140px;width:560px;font-size:34px;transform:rotate(-4deg);box-shadow:inset 0 0 0 3px var(--ink),14px 14px 0 var(--green)">“Rain in Libya is more extreme.”</div>
+  </section>
+
+  <!-- 2 · QUESTION -->
+  <section class="scene" id="s2" style="background:var(--ink);color:var(--paper)">
+    <div class="center"><div>
+      <h2 class="disp" style="font-size:210px" id="s2h">Who checks?</h2>
+      <p class="mono" style="font-size:30px;margin-top:40px;color:var(--yellow)" id="s2p">Almost nobody tests them against measurements</p>
+    </div></div>
+  </section>
+
+  <!-- 3 · REVEAL -->
+  <section class="scene" id="s3">
+    <div class="center"><div style="position:relative">
+      <div id="s3logo" style="position:relative;width:220px;height:220px;margin:0 auto 50px">
+        <i style="position:absolute;inset:0;border-radius:50%;background:var(--pink)"></i>
+        <i style="position:absolute;inset:0;border-radius:50%;background:var(--blue);mix-blend-mode:multiply;transform:translate(26px,18px)" id="s3b"></i>
+        <i style="position:absolute;left:-30px;right:-30px;top:96px;height:18px;background:var(--yellow);transform:rotate(-12deg)" id="s3y"></i>
+      </div>
+      <h1 class="disp" style="font-size:190px;position:relative" id="s3h"><span style="position:absolute;inset:0;color:var(--pink);transform:translate(8px,6px);mix-blend-mode:multiply" id="s3ghost">The Average Lies</span><span style="position:relative">The Average Lies</span></h1>
+      <p style="font-size:52px;margin-top:36px" id="s3p">Climate claims, tested against <b style="background:var(--yellow);padding:0 10px">25 years of NASA data</b>.</p>
+    </div></div>
+  </section>
+
+  <!-- 4 · DESK -->
+  <section class="scene" id="s4">
+    <p class="plate">Plate 02 · Claims desk</p>
+    <div class="node" id="s4slip" style="left:90px;top:190px;width:1740px;height:150px;font-size:56px;padding:40px 46px;box-shadow:inset 0 0 0 3px var(--ink),14px 14px 0 var(--sun)"><span id="s4type"></span><span id="s4caret" style="display:inline-block;width:6px;height:60px;background:var(--pink);vertical-align:-8px;margin-left:4px"></span></div>
+    <svg width="1920" height="1080" id="s4wires"></svg>
+    <div class="node s4n" id="s4a" style="left:90px;top:520px;width:430px"><small>1 · Claim</small>Rain in Balochistan is getting more erratic</div>
+    <div class="node s4n" id="s4b" style="left:620px;top:520px;width:400px"><small>2 · Tested as</small>Balochistan · Rain<br>Swings test</div>
+    <div class="node s4n" id="s4c" style="left:1120px;top:540px;width:330px;box-shadow:inset 0 0 0 4px var(--ink)"><small>3 · Study area</small>Pasni<br><b style="color:var(--pink)">+51% a decade</b></div>
+    <div id="s4v" style="position:absolute;left:1530px;top:520px"><span class="stamp ink-bg" style="font-size:52px;transform:rotate(-6deg)">Backed</span></div>
+    <p class="cap" id="s4cap">Paste a sentence, an article or a link · <b>every claim traced to the data</b></p>
+  </section>
+
+  <!-- 5 · DEPENDS WHERE -->
+  <section class="scene" id="s5">
+    <p class="plate">Plate 02 · Claims desk</p>
+    <svg width="1920" height="1080" id="s5wires"></svg>
+    <div class="node s5n" id="s5a" style="left:90px;top:440px;width:470px;font-size:40px"><small>Claim</small>Droughts in Somalia are getting worse</div>
+    <div class="node s5g" id="s5g1" style="left:820px;top:200px;width:520px;box-shadow:inset 0 0 0 5px var(--ink)"><small>Back it · 1 area</small>Iskushuban</div>
+    <div class="node s5g" id="s5g2" style="left:820px;top:440px;width:520px;background:#ffd9c7;box-shadow:inset 0 0 0 5px var(--orange)"><small style="color:#c94a12">Show the opposite · 1 area</small>Burao</div>
+    <div class="node s5g" id="s5g3" style="left:820px;top:680px;width:520px;background:transparent;box-shadow:inset 0 0 0 3px #9a917f"><small>No clear change · 1 area</small>Garoowe</div>
+    <div id="s5v" style="position:absolute;left:1440px;top:430px"><span class="stamp" style="font-size:54px;color:#fff;box-shadow:none;background:repeating-linear-gradient(-45deg,var(--violet) 0 14px,#5d4690 14px 28px);transform:rotate(-5deg)">Depends where</span></div>
+    <p class="cap" id="s5cap">Two areas 530 km apart <b>trend in opposite directions</b></p>
+  </section>
+
+  <!-- 6 · GLOBE -->
+  <section class="scene" id="s6">
+    <p class="plate">Plate 01 · Index globe</p>
+    <div id="s6globe" style="position:absolute;left:180px;top:150px;width:780px;height:780px;border-radius:50%;box-shadow:inset 0 0 0 4px var(--ink);background:radial-gradient(circle at 35% 30%,#f7f1e3,#ddd0b4 75%);overflow:hidden">
+      <div style="position:absolute;inset:0;border-radius:50%;background:repeating-linear-gradient(45deg,rgba(27,26,23,0.25) 0 2px,transparent 2px 10px);clip-path:polygon(30% 15%,55% 10%,62% 30%,52% 45%,60% 62%,48% 88%,38% 70%,33% 48%,22% 40%)"></div>
+      <div style="position:absolute;inset:0;border-radius:50%;background:repeating-linear-gradient(45deg,rgba(27,26,23,0.25) 0 2px,transparent 2px 10px);clip-path:polygon(64% 18%,88% 22%,92% 45%,78% 50%,70% 38%)"></div>
+    </div>
+    <div id="s6dots"></div>
+    <div style="position:absolute;left:1060px;top:230px;width:760px">
+      <p class="mono" style="font-size:26px;color:var(--pink)">What averages hide</p>
+      <p class="disp s6l" style="font-size:96px;margin-top:20px"><span id="s6n1">0</span> places</p>
+      <p class="s6l" style="font-size:40px;line-height:1.25;margin-top:10px">where the average holds steady and the months swing further from normal.</p>
+      <p class="s6l" style="font-size:40px;line-height:1.25;margin-top:40px"><b id="s6n2">0</b> neighbour pairs trending in opposite directions.</p>
+      <p class="s6l" style="font-size:40px;line-height:1.25;margin-top:20px"><b id="s6n3">0</b> places where two NASA systems disagree.</p>
+    </div>
+  </section>
+
+  <!-- 7 · SURVEY -->
+  <section class="scene" id="s7">
+    <p class="plate">Plate 03 · Survey</p>
+    <div class="node" id="s7q" style="left:90px;top:160px;width:1740px;font-size:54px;padding:36px 44px;box-shadow:inset 0 0 0 3px var(--ink),14px 14px 0 var(--blue)">Show areas where <u class="s7c" style="text-decoration-color:var(--pink);text-decoration-thickness:6px">rain swings are growing</u> and <u class="s7c" style="text-decoration-color:var(--pink);text-decoration-thickness:6px">topsoil is drying</u> in <span class="s7c chip ink-bg" style="font-size:36px">Horn of Africa</span></div>
+    <div id="s7plot" style="position:absolute;left:90px;top:400px;width:1100px;height:600px;box-shadow:inset 0 0 0 3px var(--ink);background:#fbf6ea">
+      <i style="position:absolute;left:50%;top:6%;bottom:6%;width:3px;background:var(--ink)"></i>
+      <i style="position:absolute;top:50%;left:4%;right:4%;height:3px;background:var(--ink)"></i>
+      <i style="position:absolute;left:42%;width:16%;top:6%;bottom:50%;background:rgba(255,72,176,0.12);outline:2px dashed var(--pink)"></i>
+    </div>
+    <div style="position:absolute;left:1270px;top:430px;width:560px">
+      <p class="disp s7t" style="font-size:88px">Ask in a sentence.</p>
+      <p class="s7t" style="font-size:40px;line-height:1.25;margin-top:24px">Map it, rank it, compare it, export it as CSV or GeoJSON.</p>
+    </div>
+  </section>
+
+  <!-- 8 · PROOF + CTA -->
+  <section class="scene" id="s8" style="background:var(--ink);color:var(--paper)">
+    <div style="position:absolute;left:120px;right:120px;top:150px;display:grid;grid-template-columns:repeat(4,1fr);gap:30px">
+      <div class="s8k"><p class="disp" style="font-size:150px;color:var(--yellow)" data-to="360">0</p><p class="mono" style="font-size:24px;margin-top:10px">study areas</p></div>
+      <div class="s8k"><p class="disp" style="font-size:150px;color:var(--pink)" data-to="10">0</p><p class="mono" style="font-size:24px;margin-top:10px">NASA records</p></div>
+      <div class="s8k"><p class="disp" style="font-size:150px;color:#5aa9ff" data-to="25">0</p><p class="mono" style="font-size:24px;margin-top:10px">years, monthly</p></div>
+      <div class="s8k"><p class="disp" style="font-size:150px;color:var(--green)" data-to="3545">0</p><p class="mono" style="font-size:24px;margin-top:10px">tests, corrected</p></div>
+    </div>
+    <div style="position:absolute;left:120px;right:120px;bottom:150px">
+      <h2 class="disp" style="font-size:150px" id="s8h">Test the next headline.</h2>
+      <p class="mono" style="font-size:36px;margin-top:40px;color:var(--yellow)" id="s8u">reek3r.github.io/the-average-lies</p>
+      <p class="mono" style="font-size:22px;margin-top:24px;color:#a79f8e" id="s8f">NASA Space Apps 2026 · Earth System Trend Detective · Active Future Labs</p>
+    </div>
+  </section>
+
+</div></div>
+
+<div id="ui"><button id="pp">Pause</button><button id="rs">Restart</button><input id="sc" type="range" min="0" max="1000" value="0"><span id="tt">0.0s</span></div>
+
+<script>
+  // fit the 1920×1080 stage to the window
+  const stage = document.getElementById('stage');
+  const wrap = document.getElementById('wrap');
+  function fit() { const k = Math.min(innerWidth / 1920, (innerHeight - 50) / 1080); stage.style.transform = `scale(${k})`; wrap.style.width = `${1920 * k}px`; wrap.style.height = `${1080 * k}px`; }
+  addEventListener('resize', fit); fit();
+
+  const $ = (s) => document.querySelector(s);
+  const $$ = (s) => document.querySelectorAll(s);
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  const show = (id, at) => tl.set(id, { visibility: 'visible' }, at);
+  const hide = (id, at) => tl.set(id, { visibility: 'hidden' }, at);
+  const wipe = (at, color = 'var(--pink)') => {
+    const w = document.createElement('i');
+    w.style.cssText = `position:absolute;inset:0;z-index:40;background:${color};transform:translateX(-101%)`;
+    stage.appendChild(w);
+    tl.to(w, { x: '0%', duration: 0.28, ease: 'power4.in' }, at - 0.28).to(w, { x: '101%', duration: 0.32, ease: 'power4.out' }, at);
+  };
+  const curve = (x1, y1, x2, y2, col, w, dash = '') => {
+    const m = (x1 + x2) / 2;
+    return `<path d="M${x1},${y1} C${m},${y1} ${m},${y2} ${x2},${y2}" stroke="${col}" stroke-width="${w}" fill="none" stroke-linecap="round" ${dash ? `stroke-dasharray="${dash}"` : ''}/>`;
+  };
+  const draw = (sel, at, dur = 0.6) => {
+    $$(sel + ' path').forEach((p, k) => {
+      const L = p.getTotalLength();
+      if (!p.getAttribute('stroke-dasharray')) { p.style.strokeDasharray = L; p.style.strokeDashoffset = L; tl.to(p, { strokeDashoffset: 0, duration: dur, ease: 'power2.inOut' }, at + k * 0.12); }
+      else { p.style.opacity = 0; tl.to(p, { opacity: 1, duration: dur }, at + k * 0.12); }
+    });
+  };
+
+  // 1 · hook  (0 – 3.4)
+  show('#s1', 0);
+  tl.from('#s1k', { y: 40, opacity: 0, duration: 0.4 }, 0.1)
+    .from('#s1h .word', { y: 140, rotate: 8, opacity: 0, duration: 0.5, stagger: 0.09, ease: 'back.out(2)' }, 0.25)
+    .from('.s1c', { scale: 2.4, opacity: 0, duration: 0.35, stagger: 0.22, ease: 'back.out(1.6)' }, 1.1)
+    .to('.s1c', { x: () => gsap.utils.random(-20, 20), y: () => gsap.utils.random(-14, 14), duration: 0.08, repeat: 5, yoyo: true }, 2.2);
+  wipe(3.4, 'var(--ink)');
+  hide('#s1', 3.4);
+
+  // 2 · question (3.4 – 5.6)
+  show('#s2', 3.4);
+  tl.from('#s2h', { scale: 0.3, opacity: 0, duration: 0.5, ease: 'back.out(2.2)' }, 3.45)
+    .from('#s2p', { y: 30, opacity: 0, duration: 0.4 }, 4.0)
+    .to('#s2h', { x: 10, duration: 0.05, repeat: 7, yoyo: true }, 4.6);
+  wipe(5.6, 'var(--yellow)');
+  hide('#s2', 5.6);
+
+  // 3 · reveal (5.6 – 9.4)
+  show('#s3', 5.6);
+  tl.from('#s3logo', { scale: 0, rotate: -180, duration: 0.7, ease: 'back.out(1.8)' }, 5.65)
+    .from('#s3b', { x: 240, y: -120, duration: 0.6 }, 5.8)
+    .from('#s3y', { scaleX: 0, duration: 0.4 }, 6.2)
+    .from('#s3h', { y: 120, opacity: 0, duration: 0.55, ease: 'back.out(1.6)' }, 6.3)
+    .from('#s3ghost', { x: -40, y: 30, duration: 0.6, ease: 'elastic.out(1, 0.4)' }, 6.5)
+    .from('#s3p', { y: 40, opacity: 0, duration: 0.5 }, 7.0);
+  wipe(9.4);
+  hide('#s3', 9.4);
+
+  // 4 · desk (9.4 – 15.4)
+  show('#s4', 9.4);
+  const sentence = 'Rain in Balochistan is getting more erratic.';
+  const typed = { n: 0 };
+  tl.from('#s4slip', { y: -60, opacity: 0, duration: 0.4 }, 9.45)
+    .to(typed, { n: sentence.length, duration: 1.3, ease: 'none', onUpdate: () => ($('#s4type').textContent = sentence.slice(0, Math.round(typed.n))) }, 9.8)
+    .to('#s4caret', { opacity: 0, duration: 0.2, repeat: 7, yoyo: true }, 9.8)
+    .to('#s4type', { textDecoration: 'underline', duration: 0.01 }, 11.15)
+    .from('.s4n', { y: 80, opacity: 0, duration: 0.45, stagger: 0.35, ease: 'back.out(1.7)' }, 11.3);
+  $('#s4wires').innerHTML = curve(520, 610, 620, 610, '#1b1a17', 6) + curve(1020, 610, 1120, 620, '#1b1a17', 8) + curve(1450, 620, 1530, 600, '#1b1a17', 8);
+  draw('#s4wires', 11.6, 0.5);
+  tl.from('#s4v', { scale: 4, opacity: 0, rotate: -20, duration: 0.35, ease: 'power4.in' }, 13.0)
+    .to('#s4', { x: 12, duration: 0.05, repeat: 5, yoyo: true }, 13.35)
+    .from('#s4cap', { y: 40, opacity: 0, duration: 0.4 }, 13.6);
+  wipe(15.4, 'var(--blue)');
+  hide('#s4', 15.4);
+
+  // 5 · depends where (15.4 – 20.6)
+  show('#s5', 15.4);
+  tl.from('#s5a', { x: -200, opacity: 0, duration: 0.45, ease: 'back.out(1.6)' }, 15.45)
+    .from('.s5g', { x: 200, opacity: 0, duration: 0.4, stagger: 0.25, ease: 'back.out(1.6)' }, 16.1);
+  $('#s5wires').innerHTML = curve(560, 520, 820, 260, '#1b1a17', 12) + curve(560, 520, 820, 500, '#ff6c2f', 12) + curve(560, 520, 820, 740, '#9a917f', 8, '14 12')
+    + curve(1340, 260, 1440, 500, '#1b1a17', 8) + curve(1340, 500, 1440, 500, '#ff6c2f', 8) + curve(1340, 740, 1440, 500, '#9a917f', 6, '14 12');
+  draw('#s5wires', 16.2, 0.55);
+  tl.from('#s5v', { scale: 4, opacity: 0, rotate: 25, duration: 0.35, ease: 'power4.in' }, 18.0)
+    .to('#s5', { y: 10, duration: 0.05, repeat: 5, yoyo: true }, 18.35)
+    .from('#s5cap', { y: 40, opacity: 0, duration: 0.4 }, 18.6);
+  wipe(20.6, 'var(--green)');
+  hide('#s5', 20.6);
+
+  // 6 · globe (20.6 – 25.6)
+  show('#s6', 20.6);
+  const dotsBox = $('#s6dots');
+  const cols = ['#ff48b0', '#ff48b0', '#ff48b0', '#765ba7', '#0078bf', '#ffb511'];
+  for (let k = 0; k < 30; k++) {
+    const a = Math.random() * Math.PI * 2, r = Math.sqrt(Math.random()) * 330;
+    const d = document.createElement('i');
+    const c = cols[k % cols.length];
+    d.style.cssText = `position:absolute;left:${570 + Math.cos(a) * r - 16}px;top:${540 + Math.sin(a) * r - 16}px;width:32px;height:32px;border-radius:50%;background:${c};mix-blend-mode:multiply;box-shadow:0 0 0 4px #fbf6ea,0 0 0 6px #1b1a17;font:500 15px 'DM Mono';color:#1b1a17;display:grid;place-items:center`;
+    if (k < 9) d.textContent = k + 1;
+    d.className = 's6d';
+    dotsBox.appendChild(d);
+  }
+  const n1 = { v: 0 }, n2 = { v: 0 }, n3 = { v: 0 };
+  tl.from('#s6globe', { scale: 0, rotate: -90, duration: 0.7, ease: 'back.out(1.5)' }, 20.65)
+    .from('.s6d', { scale: 0, duration: 0.3, stagger: 0.04, ease: 'back.out(3)' }, 21.2)
+    .from('.s6l', { x: 80, opacity: 0, duration: 0.45, stagger: 0.25 }, 21.4)
+    .to(n1, { v: 39, duration: 1.1, ease: 'power2.out', onUpdate: () => ($('#s6n1').textContent = Math.round(n1.v)) }, 21.5)
+    .to(n2, { v: 17, duration: 1, onUpdate: () => ($('#s6n2').textContent = Math.round(n2.v)) }, 22.2)
+    .to(n3, { v: 23, duration: 1, onUpdate: () => ($('#s6n3').textContent = Math.round(n3.v)) }, 22.5)
+    .to('#s6globe', { rotate: 12, duration: 3.5, ease: 'none' }, 21.4);
+  wipe(25.6, 'var(--sun)');
+  hide('#s6', 25.6);
+
+  // 7 · survey (25.6 – 30.4)
+  show('#s7', 25.6);
+  const plot = $('#s7plot');
+  for (let k = 0; k < 140; k++) {
+    const hit = k < 12;
+    const x = hit ? 46 + Math.random() * 10 : 8 + Math.random() * 84, y = hit ? 12 + Math.random() * 30 : 20 + Math.random() * 70;
+    const d = document.createElement('i');
+    d.className = hit ? 's7d s7hit' : 's7d';
+    d.style.cssText = `position:absolute;left:${x}%;top:${y}%;width:${hit ? 26 : 12}px;height:${hit ? 26 : 12}px;border-radius:50%;background:${hit ? '#ff48b0' : 'rgba(27,26,23,0.35)'};${hit ? 'box-shadow:0 0 0 3px #1b1a17;' : ''}transform:translate(-50%,-50%)`;
+    plot.appendChild(d);
+  }
+  tl.from('#s7q', { y: -80, opacity: 0, duration: 0.45 }, 25.65)
+    .from('.s7c', { scale: 0.4, opacity: 0, duration: 0.35, stagger: 0.25, ease: 'back.out(2.5)' }, 26.0)
+    .from('#s7plot', { scaleY: 0, transformOrigin: 'top', duration: 0.4 }, 26.5)
+    .from('.s7d:not(.s7hit)', { scale: 0, duration: 0.2, stagger: 0.004 }, 26.8)
+    .from('.s7hit', { scale: 0, duration: 0.35, stagger: 0.06, ease: 'back.out(3)' }, 27.6)
+    .from('.s7t', { x: 80, opacity: 0, duration: 0.45, stagger: 0.25 }, 27.8);
+  wipe(30.4, 'var(--ink)');
+  hide('#s7', 30.4);
+
+  // 8 · proof + CTA (30.4 – 36)
+  show('#s8', 30.4);
+  tl.from('.s8k', { y: 100, opacity: 0, duration: 0.45, stagger: 0.15, ease: 'back.out(1.8)' }, 30.45);
+  $$('.s8k [data-to]').forEach((el, k) => {
+    const o = { v: 0 }, to = Number(el.dataset.to);
+    tl.to(o, { v: to, duration: 1.2, ease: 'power2.out', onUpdate: () => (el.textContent = Math.round(o.v).toLocaleString('en-GB')) }, 30.6 + k * 0.15);
+  });
+  tl.from('#s8h', { y: 120, opacity: 0, duration: 0.6, ease: 'back.out(1.6)' }, 32.0)
+    .from('#s8u', { opacity: 0, x: -40, duration: 0.4 }, 32.8)
+    .from('#s8f', { opacity: 0, duration: 0.4 }, 33.2)
+    .call(() => $$('.s8k [data-to]').forEach((el) => (el.textContent = Number(el.dataset.to).toLocaleString('en-GB'))), null, 33.5)
+    .to({}, { duration: 2.4 }, 33.6);
+
+  // review controls (not part of the film)
+  const sc = $('#sc'), tt = $('#tt');
+  tl.eventCallback('onUpdate', () => { sc.value = Math.round(tl.progress() * 1000); tt.textContent = `${tl.time().toFixed(1)}s / ${tl.duration().toFixed(1)}s`; });
+  $('#pp').onclick = () => { tl.paused(!tl.paused()); $('#pp').textContent = tl.paused() ? 'Play' : 'Pause'; };
+  $('#rs').onclick = () => tl.restart();
+  sc.oninput = () => { tl.pause(); $('#pp').textContent = 'Play'; tl.progress(sc.value / 1000); };
+  const qt = Number(new URLSearchParams(location.search).get('t'));
+  if (qt) tl.seek(qt);
+  if (new URLSearchParams(location.search).has('film')) document.getElementById('ui').remove();
+</script>
+</body>
+</html>
