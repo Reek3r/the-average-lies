@@ -1,5 +1,9 @@
 # The Average Lies
 
+## ▶ Live site: **https://reek3r.github.io/the-average-lies/**
+
+Opens in any browser, no install. Desktop and phone.
+
 NASA Space Apps Challenge 2026 · Earth System Trend Detective · Active Future Labs
 
 A fact-checking intelligence tool for climate claims. Paste a sentence or a whole article and each claim is traced to the place, the measure and the direction it states, tested in every study area it covers with 25 years of monthly NASA data, and given a verdict with its confidence.
