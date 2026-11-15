@@ -152,7 +152,7 @@
   // fit the 1920×1080 stage to the window
   const stage = document.getElementById('stage');
   const wrap = document.getElementById('wrap');
-  function fit() { const k = Math.min(innerWidth / 1920, (innerHeight - 50) / 1080); stage.style.transform = `scale(${k})`; wrap.style.width = `${1920 * k}px`; wrap.style.height = `${1080 * k}px`; }
+  function fit() { const k = Math.min(innerWidth / 1920, innerHeight / 1080); stage.style.transform = `scale(${k})`; wrap.style.width = `${1920 * k}px`; wrap.style.height = `${1080 * k}px`; }
   addEventListener('resize', fit); fit();
 
   const $ = (s) => document.querySelector(s);
@@ -299,9 +299,11 @@
   $('#pp').onclick = () => { tl.paused(!tl.paused()); $('#pp').textContent = tl.paused() ? 'Play' : 'Pause'; };
   $('#rs').onclick = () => tl.restart();
   sc.oninput = () => { tl.pause(); $('#pp').textContent = 'Play'; tl.progress(sc.value / 1000); };
+  tl.timeScale(tl.duration() / 30); // exactly 30 seconds
   const qt = Number(new URLSearchParams(location.search).get('t'));
   if (qt) tl.seek(qt);
-  if (new URLSearchParams(location.search).has('film')) document.getElementById('ui').remove();
+  if (!new URLSearchParams(location.search).has('review')) document.getElementById('ui').style.display = 'none';
+  document.addEventListener('click', () => tl.restart());
 </script>
 </body>
 </html>
