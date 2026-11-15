@@ -9,6 +9,7 @@ import { hiddenExtremes, oppositePairs, contested } from '../content/discovery.j
 import { renderBriefing, recordInfo, areaName, words, leadRecord } from './briefing.js';
 import { renderClaim, renderArticle, VERDICT_SHORT, verdictSentence } from './check.js';
 import { renderDesk } from '../app/desk.js';
+import { isUrl } from '../claim/read.js';
 import { renderFind } from '../app/find.js';
 
 const WILD = '#ff48b0';
@@ -81,6 +82,17 @@ export function startTool(root, ctx) {
     <section class="t-page" hidden></section>
 
     <aside class="t-feed" aria-label="Findings">
+      <section class="brief">
+        <p class="plate-k">Plate 01 · What this globe tells you</p>
+        <p class="brief-h">Where a regional average hides what is really happening</p>
+        <ol class="brief-l">
+          <li><i style="background:#ff48b0"></i><span><b>${found.extremes.length} places</b> where the average hasn’t changed but months swing further from normal, in both directions.</span></li>
+          <li><i style="background:linear-gradient(90deg,#ffb511 50%,#0078bf 50%)"></i><span><b>${found.pairs.length} pairs</b> of neighbours trending in opposite directions. A claim about the whole country is wrong for one of them.</span></li>
+          <li><i style="background:#765ba7"></i><span><b>${found.contested.length} places</b> where two NASA systems give opposite answers. Treat any claim here with care.</span></li>
+        </ol>
+        <p class="brief-how">Pick a list below. Each entry has a number that matches a dot on the globe. Click either to open the place and its evidence.</p>
+        <button type="button" class="btn-solid brief-tour" data-act="tour">Take the 60-second tour</button>
+      </section>
       <div class="tabs" role="tablist">${TABS.map(([id, label]) => `<button type="button" role="tab" data-tab="${id}">${label}<span class="n"></span></button>`).join('')}</div>
       <p class="feed-lede"></p>
       <ol class="feed-list"></ol>
@@ -505,6 +517,10 @@ export function startTool(root, ctx) {
   function submit(text) {
     const t = text.trim();
     if (!t) return;
+    if (isUrl(t) || t.split(/[.!?]\s/).length > 3) {
+      setPage('desk');
+      return pageApi.check(t);
+    }
     if (current === 'desk' && pageApi?.check) return pageApi.check(t);
     if (current !== 'globe') setPage('globe');
     sugg.hidden = true;

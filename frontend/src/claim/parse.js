@@ -8,7 +8,7 @@ import { RECORDS, RECORD_ORDER, TYPE_PHRASES } from './vocab.js';
 
 const COUNTRY_ALIASES = {
   usa: ['united states', 'america', 'the us', 'u.s.', 'us'],
-  uk: ['united kingdom', 'britain', 'great britain'],
+  uk: ['united kingdom', 'britain', 'great britain', 'england', 'scotland', 'wales', 'the uk'],
   russia: ['russian federation'],
   'dr congo': ['democratic republic of the congo', 'drc'],
 };
@@ -71,6 +71,8 @@ export function buildPlaceIndex(regions) {
       for (const alias of COUNTRY_ALIASES[norm(r.country)] ?? []) add(alias, r.country, 'country', i);
     }
   });
+  // the whole study set, for global claims
+  for (const g of ['the world', 'world', 'worldwide', 'global', 'globally', 'the planet', 'the globe', 'earth']) regions.forEach((_, i) => add(g, 'The world (all 360 areas)', 'region', i));
   for (const [name, [w, so, e, n]] of Object.entries(REGIONS)) {
     regions.forEach((r, i) => {
       if (r.lon >= w && r.lon <= e && r.lat >= so && r.lat <= n) add(name, titleCase(name.replace(/^the /, '')), 'region', i);
