@@ -1,0 +1,27 @@
+{
+  "name": "active-future-labs-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Really? — check a weather claim against 25 years of NASA Earth data. Static Vite site, no server.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test tests/*.test.mjs",
+    "data": "python ../backend/export/export_frontend_data.py ${DB:-../backend/data/nasa_cache.sqlite3} public/data && python ../backend/claims/export_checks.py public/data",
+    "build:artifact": "ARTIFACT=1 vite build"
+  },
+  "devDependencies": {
+    "vite": "^6.4.1"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource/dm-mono": "^5.3.0",
+    "d3-geo": "^3.1.2",
+    "globe.gl": "^2.46.2",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
+  }
+}
