@@ -36,7 +36,8 @@ export function renderDesk(el, ctx, { onShow }) {
   el.innerHTML = `
     <div class="desk2">
       <header class="plate-head"><p class="plate-k">Plate 02 · Claims desk</p><h2>Test what the news says</h2>
-        <p class="sub">Paste an article link, a whole article, or one sentence. The desk finds every sentence that claims a place is getting wetter, drier, hotter or more extreme, and tests it against 25 years of NASA measurements.</p></header>
+        <p class="sub">Paste an article link, a whole article, or one sentence. The desk finds every sentence that claims a place is getting wetter, drier, hotter or more extreme, and tests it against 25 years of NASA measurements.</p>
+        <p class="mvp">MVP · Claims are read with a fixed word list, so loosely worded or opinion sentences may not be picked up. Some news sites block link reading; paste the text instead.</p></header>
       <section class="intake">
         <div class="slip">
           <p class="slip-k"><span>Claim slip</span><span class="slip-n">No sentences yet</span></p>

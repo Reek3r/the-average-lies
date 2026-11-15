@@ -92,6 +92,7 @@ export function startTool(root, ctx) {
         </ol>
         <p class="brief-how">Pick a list below. Each entry has a number that matches a dot on the globe. Click either to open the place and its evidence.</p>
         <button type="button" class="btn-solid brief-tour" data-act="tour">Take the 60-second tour</button>
+        <p class="mvp">MVP built for NASA Space Apps 2026. Results are statistical trends, not forecasts or causes.</p>
       </section>
       <div class="tabs" role="tablist">${TABS.map(([id, label]) => `<button type="button" role="tab" data-tab="${id}">${label}<span class="n"></span></button>`).join('')}</div>
       <p class="feed-lede"></p>
